@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "testdemoad"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
 		"AzureDataLakeStorage1_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
@@ -245,6 +249,52 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText5')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "DealDetailSink.csv",
+						"container": "testdemo"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Cmf|DealerId|DealNo|FinInvoiceId|CommonInvoiceID|FinanceDate|OriginatingDate|DeliveryDate|lastmodifieddate|salesmanid|clpremium|clcost|sourcetype|ahpremium|ahcost|CustID|lienholder|AmtFinanced|Term|Rate|Payment|totaldownpayment|fincharge|fincost|DaysToFirst|SalesmanName|lienaddressfirstline|lienaddresssecondline|liencity|lienzip|lienstate|cobuyercustid|cobuyername|cobuyeraddr|cobuyeraddr2|cobuyercity|cobuyerstate|cobuyerzip|cobuyercounty|cobuyerhomephone|cobuyerworkphone|cobuyercellphone|cobuyeremail|stagename|source|cobuyerbirthdate|Salesman2name|Salesman2id|Salesmanfi1id|Salesmanfi1name|Salesmanfi2id|Salesmanfi2name|Fincostoverride2|Salesman1split|Salestaxtotal|Vehicletaxtotal2|Insurancetaxtotal2|totalcashprice|totalprevpymt|additionalpymttoday|deferredamt|extra1amt|balancetofinance|totalofpayments|addonrate|aprbuyrate|addonbuyrate|balloonterm|balloonpayment|ahprice|clprice|ins1amt|ins1cost|ins2amt|ins2cost|ins3amt|ins3cost|ins4amt|ins4cost|ins5amt|ins5cost|ins6amt|ins6cost|insurancetaxtotal|femargin|bemargin|createdate|customerextraline|customernotes|salesmanusername|fincostoverride|isfincostoverride|firstlienaddressfirstline|firstlienaddresssecondline|firstliencity|firstlienzip|firstlienstate|salestaxtotal2|vehicletaxtotal|salesagent1|salesagent2|salesagent3|salesmanager|dealdescription|backdateddate|isbackdated",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
+				}
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage1')]",
