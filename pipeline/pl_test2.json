@@ -1,0 +1,17 @@
+{
+	"name": "pl_test2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Switch1",
+				"type": "Switch",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"cases": []
+				}
+			}
+		],
+		"annotations": []
+	}
+}
