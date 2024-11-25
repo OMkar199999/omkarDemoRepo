@@ -1,0 +1,28 @@
+{
+	"name": "ls_test",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "DealDetailSink.csv",
+				"container": "testdemo"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Cmf|DealerId|DealNo|FinInvoiceId|CommonInvoiceID|FinanceDate|OriginatingDate|DeliveryDate|lastmodifieddate|salesmanid|clpremium|clcost|sourcetype|ahpremium|ahcost|CustID|lienholder|AmtFinanced|Term|Rate|Payment|totaldownpayment|fincharge|fincost|DaysToFirst|SalesmanName|lienaddressfirstline|lienaddresssecondline|liencity|lienzip|lienstate|cobuyercustid|cobuyername|cobuyeraddr|cobuyeraddr2|cobuyercity|cobuyerstate|cobuyerzip|cobuyercounty|cobuyerhomephone|cobuyerworkphone|cobuyercellphone|cobuyeremail|stagename|source|cobuyerbirthdate|Salesman2name|Salesman2id|Salesmanfi1id|Salesmanfi1name|Salesmanfi2id|Salesmanfi2name|Fincostoverride2|Salesman1split|Salestaxtotal|Vehicletaxtotal2|Insurancetaxtotal2|totalcashprice|totalprevpymt|additionalpymttoday|deferredamt|extra1amt|balancetofinance|totalofpayments|addonrate|aprbuyrate|addonbuyrate|balloonterm|balloonpayment|ahprice|clprice|ins1amt|ins1cost|ins2amt|ins2cost|ins3amt|ins3cost|ins4amt|ins4cost|ins5amt|ins5cost|ins6amt|ins6cost|insurancetaxtotal|femargin|bemargin|createdate|customerextraline|customernotes|salesmanusername|fincostoverride|isfincostoverride|firstlienaddressfirstline|firstlienaddresssecondline|firstliencity|firstlienzip|firstlienstate|salestaxtotal2|vehicletaxtotal|salesagent1|salesagent2|salesagent3|salesmanager|dealdescription|backdateddate|isbackdated",
+				"type": "String"
+			}
+		]
+	}
+}
