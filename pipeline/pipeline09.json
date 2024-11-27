@@ -1,5 +1,5 @@
 {
-	"name": "pl_omkar",
+	"name": "pipeline09",
 	"properties": {
 		"activities": [
 			{
@@ -13,7 +13,7 @@
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2024-11-25T04:34:35Z"
+		"lastPublishTime": "2024-11-27T12:19:06Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
